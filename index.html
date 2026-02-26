@@ -3,109 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Venkateshwara Finance | Premium Interactive</title>
+    <title>Venkateshwara Finance | Elite Experience</title>
     <style>
         :root {
             --accent-gold: #fbbf24;
             --deep-navy: #0f172a;
             --slate-bg: #f8fafc;
             --glass: rgba(255, 255, 255, 0.98);
-            --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            --whatsapp-green: #25D366;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        body { 
-            font-family: 'Segoe UI', Roboto, sans-serif; 
-            margin: 0; background: var(--slate-bg); color: #334155; overflow-x: hidden;
+        /* --- ENTRANCE ANIMATIONS --- */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Segoe UI', Roboto, sans-serif; margin: 0; background: var(--slate-bg); color: #334155; }
 
         header { 
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: white; padding: 80px 20px; text-align: center; border-bottom: 5px solid var(--accent-gold);
+            color: white; padding: 100px 20px; text-align: center; 
+            border-bottom: 5px solid var(--accent-gold);
+            animation: fadeInUp 0.8s ease-out;
         }
 
         .section { 
-            max-width: 1000px; margin: -40px auto 40px; padding: 40px; 
+            max-width: 1000px; margin: -50px auto 40px; padding: 40px; 
             background: var(--glass); border-radius: 24px; 
-            box-shadow: 0 20px 50px rgba(0,0,0,0.1); position: relative;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1); 
+            animation: fadeInUp 1s ease-out both;
+            animation-delay: 0.2s;
         }
 
         h2 { text-align: center; color: var(--deep-navy); text-transform: uppercase; letter-spacing: 1.5px; }
         h2::after { content: ''; display: block; width: 60px; height: 3px; background: var(--accent-gold); margin: 15px auto; }
 
-        /* --- HOVER EFFECT: GALLERY --- */
-        .gallery { 
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin: 30px 0; 
-        }
+        /* --- INTERACTIVE GALLERY --- */
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin: 30px 0; }
         .gallery img { 
             width: 100%; height: 250px; object-fit: cover; border-radius: 16px; 
             transition: var(--transition); cursor: pointer; filter: brightness(0.9);
         }
-        .gallery img:hover { 
-            transform: scale(1.05) translateY(-5px); 
-            filter: brightness(1.1);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-            z-index: 2;
-        }
+        .gallery img:hover { transform: scale(1.05) translateY(-5px); filter: brightness(1.1); box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
 
-        /* --- HOVER EFFECT: PROMO BOX --- */
-        .promo-box { 
-            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
-            border: 2px solid var(--accent-gold); padding: 40px; border-radius: 20px; 
-            text-align: center; margin: 40px 0; transition: var(--transition);
-        }
-        .promo-box:hover {
-            box-shadow: 0 0 30px rgba(251, 191, 36, 0.3);
-            transform: translateY(-3px);
-        }
-        .promo-rate { font-size: 3.5rem; font-weight: 800; color: var(--deep-navy); }
-
-        /* --- HOVER EFFECT: SERVICE CARDS --- */
-        .services-list { 
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; 
-            padding: 0; list-style: none; margin-bottom: 40px;
-        }
+        /* --- SERVICE CARDS --- */
+        .services-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; list-style: none; padding: 0; margin-bottom: 40px; }
         .services-list li { 
             background: white; padding: 25px; border-radius: 15px; border: 1px solid #e2e8f0;
             font-weight: 600; text-align: center; transition: var(--transition);
         }
-        .services-list li:hover {
-            background: var(--deep-navy);
-            color: var(--accent-gold);
-            border-color: var(--accent-gold);
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(15, 23, 42, 0.2);
-        }
+        .services-list li:hover { background: var(--deep-navy); color: var(--accent-gold); transform: translateY(-8px); }
 
-        /* --- HOVER EFFECT: BUTTONS --- */
+        /* --- BUTTONS --- */
         .links { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
-        .btn { 
-            padding: 20px; border-radius: 14px; text-decoration: none; color: white; 
-            font-weight: bold; text-align: center; transition: var(--transition);
-            display: flex; align-items: center; justify-content: center;
-        }
-
+        .btn { padding: 20px; border-radius: 14px; text-decoration: none; color: white; font-weight: bold; text-align: center; transition: var(--transition); display: flex; align-items: center; justify-content: center; }
         .call-btn { background: var(--deep-navy); border: 2px solid var(--accent-gold); grid-column: 1 / -1; }
-        .whatsapp { background: #075e54; }
-        .instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
         .map-btn { background: #34a853; }
-        .googleform { background: #4285f4; }
+        .btn:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
 
-        .btn:hover { 
-            transform: translateY(-5px);
-            filter: contrast(1.1) brightness(1.1);
-            box-shadow: 0 12px 20px rgba(0,0,0,0.2);
-            letter-spacing: 1px; /* Subtle text expansion */
+        /* --- FLOATING WHATSAPP CHAT --- */
+        .whatsapp-float {
+            position: fixed; bottom: 30px; left: 30px;
+            background-color: var(--whatsapp-green); color: white;
+            width: 60px; height: 60px; border-radius: 50px;
+            text-align: center; font-size: 30px; z-index: 100;
+            display: flex; align-items: center; justify-content: center;
+            text-decoration: none; box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            animation: pulse 2s infinite;
         }
 
-        footer { text-align: center; padding: 60px 20px; color: #64748b; }
+        /* --- BACK TO TOP --- */
+        #backToTop {
+            position: fixed; bottom: 30px; right: 30px;
+            background: var(--accent-gold); color: var(--deep-navy);
+            width: 50px; height: 50px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 24px; cursor: pointer; border: none;
+            opacity: 0; visibility: hidden; transition: var(--transition); z-index: 100;
+        }
+        #backToTop.show { opacity: 1; visibility: visible; }
+
+        footer { text-align: center; padding: 60px 20px; color: #64748b; font-size: 0.9rem; }
 
         @media (max-width: 600px) {
+            header { padding: 60px 20px; }
             .section { padding: 20px; }
             .call-btn { grid-column: auto; }
+            .whatsapp-float { bottom: 20px; left: 20px; width: 50px; height: 50px; font-size: 25px; }
+            #backToTop { bottom: 20px; right: 20px; }
         }
     </style>
 </head>
 <body>
+
+<a href="https://wa.me/9182101104" class="whatsapp-float" target="_blank" title="Chat with us">
+    <span style="font-weight: bold;">💬</span>
+</a>
 
 <header>
     <h1>Venkateshwara Finance & E-Services</h1>
@@ -118,18 +120,15 @@
         <img src="exterior on road 2.jpg" alt="Exterior">
         <img src="exterior on road front 2.jpg" alt="Entrance">
         <img src="interior.jpg" alt="Lounge">
-        <img src="IMG_9687.jpeg" alt="Service">
-        <img src="IMG_9710.jpeg" alt="Consultation">
-        <img src="IMG_9718.jpeg" alt="Digital Services">
+        <img src="IMG_9687.jpeg" alt="Consultation">
+        <img src="IMG_9710.jpeg" alt="Office">
+        <img src="IMG_9718.jpeg" alt="Service Desk">
     </div>
 
-    <div class="promo-box">
-        <h2>Credit Card to Spot Cash</h2>
-        <div class="promo-rate">1.5% <span style="font-size: 1rem; opacity: 0.7;">ONWARDS</span></div>
+    <div class="promo-box" style="background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border: 2px solid var(--accent-gold); padding: 40px; border-radius: 20px; text-align: center; margin: 40px 0;">
+        <h2 style="color: #92400e; border: none;">Credit Card to Spot Cash</h2>
+        <div style="font-size: 3.5rem; font-weight: 800; color: var(--deep-navy);">1.5% <span style="font-size: 1rem; opacity: 0.7;">ONWARDS</span></div>
         <p>Safe, instant, and transparent Pay & Swipe services.</p>
-        <div style="font-weight: bold; color: #92400e; margin-top: 10px;">
-            Fast Processing • Minimal Docs • Trusted Service
-        </div>
     </div>
 
     <h2>Elite Portfolio</h2>
@@ -138,27 +137,41 @@
         <li>Business Growth</li>
         <li>Mortgage Solutions</li>
         <li>Bespoke Insurance</li>
-        <li>Credit Management</li>
+        <li>Credit Card Payment</li>
     </ul>
 
-    <h2>Experience Our Process</h2>
-    <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; border-radius: 20px; overflow: hidden; margin: 40px 0;">
+    <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; border-radius: 20px; overflow: hidden; margin: 40px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
         <iframe src="https://www.youtube.com/embed/zc5jGgCh8xo" style="position: absolute; top:0; left:0; width:100%; height:100%; border:0;" allowfullscreen></iframe>
     </div>
 
     <h2>Connect With Us</h2>
     <div class="links">
         <a href="tel:+9182101104" class="btn call-btn">📞 CALL EXECUTIVE: 82101104 / 9705215038</a>
-        <a href="https://maps.app.goo.gl/FeWbYdR2eNAhLidf7" target="_blank" class="btn map-btn">📍 LOCATE OFFICE</a>
-        <a href="https://wa.me/9182101104" target="_blank" class="btn whatsapp">💬 WHATSAPP CHAT</a>
-        <a href="https://www.instagram.com/yadagirikoushik" target="_blank" class="btn instagram">📸 INSTAGRAM</a>
-        <a href="https://forms.gle/2hyEh8iSL7tRxgsg6" target="_blank" class="btn googleform">📝 SERVICE INQUIRY</a>
+        <a href="https://maps.google.com" target="_blank" class="btn map-btn">📍 LOCATE OFFICE</a>
+        <a href="https://forms.gle/2hyEh8iSL7tRxgsg6" target="_blank" class="btn" style="background: #4285f4;">📝 SERVICE INQUIRY</a>
     </div>
 </div>
+
+<button id="backToTop" title="Go to top">↑</button>
 
 <footer>
     <p>© 2026 Venkateshwara Finance and E-Services.<br>Gowlidoddy, Hyderabad.</p>
 </footer>
+
+<script>
+    // Back to Top functionality
+    const topBtn = document.getElementById('backToTop');
+    window.onscroll = function() {
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            topBtn.classList.add('show');
+        } else {
+            topBtn.classList.remove('show');
+        }
+    };
+    topBtn.onclick = function() {
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    };
+</script>
 
 </body>
 </html>
