@@ -3,126 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Venkateshwara Finance | Official Page</title>
+    <title>Venkateshwara Finance | Premium Interactive</title>
     <style>
         :root {
-            --primary: #075e54; /* WhatsApp Green */
-            --insta: #e1306c; /* Instagram Pink */
-            --google: #4285f4; /* Google Blue */
-            --call: #2563eb; /* Blue for Phone */
-            --dark: #1a1a1a;
-            --highlight: #fff9c4; /* Light yellow for promo */
-            --map: #34a853; /* Google Maps Green */
+            --accent-gold: #fbbf24;
+            --deep-navy: #0f172a;
+            --slate-bg: #f8fafc;
+            --glass: rgba(255, 255, 255, 0.98);
+            --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        body { font-family: 'Arial', sans-serif; margin: 0; padding: 0; background: #f9f9f9; color: var(--dark); line-height: 1.6; }
-        header { background: var(--dark); color: white; padding: 40px 20px; text-align: center; }
-        
-        .section { max-width: 900px; margin: 20px auto; padding: 20px; background: white; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        
-        /* Promo Box Styling */
-        .promo-box { background: var(--highlight); border: 2px dashed #fbc02d; padding: 25px; border-radius: 12px; text-align: center; margin-top: 20px; }
-        .promo-box h2 { color: #d32f2f; margin-top: 0; }
-        
-        h2 { border-bottom: 2px solid #eee; padding-bottom: 10px; }
 
-        /* Gallery */
-        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin: 20px 0; }
-        .gallery img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; }
+        body { 
+            font-family: 'Segoe UI', Roboto, sans-serif; 
+            margin: 0; background: var(--slate-bg); color: #334155; overflow-x: hidden;
+        }
 
-        /* Services List */
-        .services-list { list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
-        .services-list li { background: #f1f1f1; padding: 10px; border-radius: 5px; font-weight: bold; }
+        header { 
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white; padding: 80px 20px; text-align: center; border-bottom: 5px solid var(--accent-gold);
+        }
 
-        /* Video */
-        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; margin: 20px 0; }
-        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        .section { 
+            max-width: 1000px; margin: -40px auto 40px; padding: 40px; 
+            background: var(--glass); border-radius: 24px; 
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1); position: relative;
+        }
 
-        /* Buttons */
-        .links { display: flex; flex-direction: column; gap: 15px; margin-top: 30px; }
-        .btn { display: block; text-align: center; padding: 15px; border-radius: 8px; text-decoration: none; color: white; font-weight: bold; font-size: 1.1rem; transition: transform 0.2s; }
-        .btn:hover { transform: scale(1.02); }
-        
-        .whatsapp { background: var(--primary); }
-        .instagram { background: var(--insta); }
-        .googleform { background: var(--google); }
-        .call-btn { background: var(--call); }
-        .map-btn { background: var(--map); }
+        h2 { text-align: center; color: var(--deep-navy); text-transform: uppercase; letter-spacing: 1.5px; }
+        h2::after { content: ''; display: block; width: 60px; height: 3px; background: var(--accent-gold); margin: 15px auto; }
 
-        footer { text-align: center; padding: 40px; color: #888; font-size: 0.8rem; }
-        
+        /* --- HOVER EFFECT: GALLERY --- */
+        .gallery { 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin: 30px 0; 
+        }
+        .gallery img { 
+            width: 100%; height: 250px; object-fit: cover; border-radius: 16px; 
+            transition: var(--transition); cursor: pointer; filter: brightness(0.9);
+        }
+        .gallery img:hover { 
+            transform: scale(1.05) translateY(-5px); 
+            filter: brightness(1.1);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            z-index: 2;
+        }
+
+        /* --- HOVER EFFECT: PROMO BOX --- */
+        .promo-box { 
+            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+            border: 2px solid var(--accent-gold); padding: 40px; border-radius: 20px; 
+            text-align: center; margin: 40px 0; transition: var(--transition);
+        }
+        .promo-box:hover {
+            box-shadow: 0 0 30px rgba(251, 191, 36, 0.3);
+            transform: translateY(-3px);
+        }
+        .promo-rate { font-size: 3.5rem; font-weight: 800; color: var(--deep-navy); }
+
+        /* --- HOVER EFFECT: SERVICE CARDS --- */
+        .services-list { 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; 
+            padding: 0; list-style: none; margin-bottom: 40px;
+        }
+        .services-list li { 
+            background: white; padding: 25px; border-radius: 15px; border: 1px solid #e2e8f0;
+            font-weight: 600; text-align: center; transition: var(--transition);
+        }
+        .services-list li:hover {
+            background: var(--deep-navy);
+            color: var(--accent-gold);
+            border-color: var(--accent-gold);
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(15, 23, 42, 0.2);
+        }
+
+        /* --- HOVER EFFECT: BUTTONS --- */
+        .links { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
+        .btn { 
+            padding: 20px; border-radius: 14px; text-decoration: none; color: white; 
+            font-weight: bold; text-align: center; transition: var(--transition);
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        .call-btn { background: var(--deep-navy); border: 2px solid var(--accent-gold); grid-column: 1 / -1; }
+        .whatsapp { background: #075e54; }
+        .instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+        .map-btn { background: #34a853; }
+        .googleform { background: #4285f4; }
+
+        .btn:hover { 
+            transform: translateY(-5px);
+            filter: contrast(1.1) brightness(1.1);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.2);
+            letter-spacing: 1px; /* Subtle text expansion */
+        }
+
+        footer { text-align: center; padding: 60px 20px; color: #64748b; }
+
         @media (max-width: 600px) {
-            .services-list { grid-template-columns: 1fr; }
+            .section { padding: 20px; }
+            .call-btn { grid-column: auto; }
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Venkateshwara Finance and E-Services</h1>
-    <p>Gowlidoddy, Hyderabad | Your Trusted Financial Partner</p>
+    <h1>Venkateshwara Finance & E-Services</h1>
+    <p>Premium Financial Advisory • Gowlidoddy, Hyderabad</p>
 </header>
 
 <div class="section">
-    <h2>Our Gallery</h2>
+    <h2>Our Establishment</h2>
     <div class="gallery">
-        <img src="exterior on road 2.jpg" alt="Office View">
-        <img src="exterior on road front 2.jpg" alt="Front View">
-        <img src="exterior on road front.jpg" alt="Street View">
-        <img src="interior 1.jpg" alt="Interior">
-        <img src="interior.jpg" alt="Office Space">
-        <img src="interior 3.jpg" alt="Waiting Area">
-        <img src="IMG_9687.jpeg" alt="Service Image 1">
-        <img src="IMG_9691.jpeg" alt="Service Image 2">
-        <img src="IMG_9692.jpeg" alt="Service Image 3">
-        <img src="IMG_9707.jpeg" alt="Document Support">
+        <img src="exterior on road 2.jpg" alt="Exterior">
+        <img src="exterior on road front 2.jpg" alt="Entrance">
+        <img src="interior.jpg" alt="Lounge">
+        <img src="IMG_9687.jpeg" alt="Service">
         <img src="IMG_9710.jpeg" alt="Consultation">
-        <img src="IMG_9718.jpeg" alt="E-Services">
+        <img src="IMG_9718.jpeg" alt="Digital Services">
     </div>
 
     <div class="promo-box">
         <h2>Credit Card to Spot Cash</h2>
-        <p style="font-size: 1.2rem; font-weight: bold;">Only 1.5% Onwards!</p>
-        <p>Looking for instant cash in Hyderabad? Visit <strong>Venkateshwara Finance and E-Services, Gowlidoddy</strong> for safe Credit Card to Cash service with Pay & Swipe facility.</p>
-        <div style="text-align: left; display: inline-block; margin: 10px 0;">
-            • Fast Processing<br>
-            • Simple Documentation<br>
-            • Transparent Charges<br>
-            • Trusted Service
+        <div class="promo-rate">1.5% <span style="font-size: 1rem; opacity: 0.7;">ONWARDS</span></div>
+        <p>Safe, instant, and transparent Pay & Swipe services.</p>
+        <div style="font-weight: bold; color: #92400e; margin-top: 10px;">
+            Fast Processing • Minimal Docs • Trusted Service
         </div>
     </div>
 
-    <h2 style="margin-top: 30px;">Our Financial Services</h2>
+    <h2>Elite Portfolio</h2>
     <ul class="services-list">
-        <li>• Personal Loans</li>
-        <li>• Business Loans</li>
-        <li>• Home & Mortgage Loans</li>
-        <li>• Insurance Services</li>
-        <li>• Credit Card payment Services</li>
+        <li>Personal Capital</li>
+        <li>Business Growth</li>
+        <li>Mortgage Solutions</li>
+        <li>Bespoke Insurance</li>
+        <li>Credit Management</li>
     </ul>
 
-    <h2>Watch Our Promo</h2>
-    <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/zc5jGgCh8xo" allowfullscreen></iframe>
+    <h2>Experience Our Process</h2>
+    <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; border-radius: 20px; overflow: hidden; margin: 40px 0;">
+        <iframe src="https://www.youtube.com/embed/zc5jGgCh8xo" style="position: absolute; top:0; left:0; width:100%; height:100%; border:0;" allowfullscreen></iframe>
     </div>
-</div>
 
-<div class="section">
     <h2>Connect With Us</h2>
     <div class="links">
-        <a href="tel:+9182101104" class="btn call-btn">📞 Call Now: 9182101104 / 9705215038</a>
-        
-        <a href="https://maps.app.goo.gl/FeWbYdR2eNAhLidf7" target="_blank" class="btn map-btn">📍 Get Directions Venkateshwara Finance</a>
-        
-        <a href="https://wa.me/9182101104" target="_blank" class="btn whatsapp">Chat on WhatsApp</a>
-        
-        <a href="https://www.instagram.com/yadagirikoushik?igsh=MTMwcjJxM2llMGVjNA==" target="_blank" class="btn instagram">Follow on Instagram</a>
-        
-        <a href="https://forms.gle/2hyEh8iSL7tRxgsg6" target="_blank" class="btn googleform">Fill Inquiry Form</a>
+        <a href="tel:+9182101104" class="btn call-btn">📞 CALL EXECUTIVE: 82101104 / 9705215038</a>
+        <a href="https://maps.google.com" target="_blank" class="btn map-btn">📍 LOCATE OFFICE</a>
+        <a href="https://wa.me/9182101104" target="_blank" class="btn whatsapp">💬 WHATSAPP CHAT</a>
+        <a href="https://www.instagram.com/yadagirikoushik" target="_blank" class="btn instagram">📸 INSTAGRAM</a>
+        <a href="https://forms.gle/2hyEh8iSL7tRxgsg6" target="_blank" class="btn googleform">📝 SERVICE INQUIRY</a>
     </div>
 </div>
 
 <footer>
-    <p>&copy; 2026 Venkateshwara Finance and E-Services. Gowlidoddy, Hyderabad.</p>
+    <p>© 2026 Venkateshwara Finance and E-Services.<br>Gowlidoddy, Hyderabad.</p>
 </footer>
 
 </body>
