@@ -12,16 +12,12 @@
             --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
-        /* --- PERFORMANCE FIXES --- */
+        /* --- PERFORMANCE & SMOOTHING --- */
         * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
-        
         html { scroll-behavior: smooth; }
-        
         body { 
             font-family: 'Inter', sans-serif; 
-            margin: 0; 
-            background: #f8fafc; 
-            color: var(--slate); 
+            margin: 0; background: #f8fafc; color: var(--slate); 
             overflow-x: hidden;
         }
 
@@ -40,7 +36,6 @@
             height: 50vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
             color: white; text-align: center;
         }
-
         header h1 { font-size: clamp(1.5rem, 5vw, 3rem); margin: 0; color: var(--gold); }
 
         .section { 
@@ -48,66 +43,67 @@
             background: white; border-radius: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.05);
         }
 
-        /* --- SMOOTH GALLERY FIX --- */
+        /* --- GALLERY (HARDWARE ACCELERATED) --- */
         .gallery { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 15px; 
-            margin-bottom: 50px;
-            /* Performance: Create a new stacking context */
-            transform: translateZ(0); 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 15px; margin-bottom: 50px; transform: translateZ(0); 
         }
-
         .gallery img { 
             width: 100%; height: 260px; object-fit: cover; border-radius: 16px; 
-            transition: transform 0.3s ease-out;
-            cursor: pointer;
-            background: #eee; /* Placeholder color */
-            /* Performance: GPU acceleration */
+            transition: transform 0.3s ease-out; cursor: pointer;
             will-change: transform;
         }
+        .gallery img:hover { transform: translateY(-8px); box-shadow: 0 12px 24px rgba(0,0,0,0.15); }
 
-        .gallery img:hover { 
-            transform: translateY(-8px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
-        }
-
-        /* --- PROMO --- */
+        /* --- PROMO BOX --- */
         .promo-box { 
             background: var(--navy); color: white; padding: 50px 20px; border-radius: 24px; 
             text-align: center; margin: 50px 0; border: 1px solid var(--gold);
         }
         .rate { font-size: clamp(3rem, 8vw, 5rem); font-weight: 900; color: var(--gold); margin: 10px 0; }
 
-        /* --- PROCESS FLOW --- */
-        .process-flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 40px 0; text-align: center; }
-        .step { padding: 20px; background: #fdfdfd; border-radius: 15px; border: 1px solid #f1f5f9; }
-        .step strong { color: var(--navy); display: block; margin-bottom: 5px; font-size: 1.2rem; }
-
         /* --- BUTTONS --- */
         .links { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
-        .btn { 
-            padding: 18px; border-radius: 12px; text-decoration: none; color: white; 
-            font-weight: bold; text-align: center; transition: var(--transition);
-        }
+        .btn { padding: 18px; border-radius: 12px; text-decoration: none; color: white; font-weight: bold; text-align: center; transition: var(--transition); }
         .btn:hover { transform: translateY(-3px); filter: brightness(1.1); }
         
         .call-btn { background: var(--navy); border: 1px solid var(--gold); grid-column: 1/-1; }
-        .map-btn { background: #16a34a; }
         .insta-btn { background: linear-gradient(45deg, #f09433, #dc2743, #bc1888); }
+        .map-btn { background: #16a34a; }
 
+        /* --- FLOATING WHATSAPP WITH TEXT --- */
+        .whatsapp-container {
+            position: fixed; bottom: 20px; left: 20px;
+            display: flex; flex-direction: column; align-items: center;
+            z-index: 1000; text-decoration: none;
+        }
         .whatsapp-float {
-            position: fixed; bottom: 25px; left: 25px;
             background: #25D366; color: white; width: 60px; height: 60px;
             border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-size: 28px; z-index: 1000; box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-            text-decoration: none;
+            font-size: 28px; box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
         }
+        .whatsapp-text {
+            margin-top: 6px; color: #075e54; font-size: 11px; font-weight: 800;
+            text-transform: uppercase; letter-spacing: 0.5px;
+            text-shadow: 0 1px 2px rgba(255,255,255,0.8);
+        }
+        .whatsapp-container:hover .whatsapp-float { transform: scale(1.1); }
 
-        @media (max-width: 600px) {
-            .section { margin-top: -30px; border-radius: 20px; }
-            .call-btn { grid-column: auto; }
+        /* --- BACK TO TOP --- */
+        #backToTop {
+            position: fixed; bottom: 35px; right: 25px;
+            background: var(--gold); color: var(--navy);
+            width: 50px; height: 50px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 22px; cursor: pointer; border: none;
+            opacity: 0; visibility: hidden; transition: var(--transition); z-index: 1000;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         }
+        #backToTop.show { opacity: 1; visibility: visible; }
+        #backToTop:hover { background: white; transform: scale(1.1); }
+
+        footer { text-align: center; padding: 40px; color: #94a3b8; font-size: 0.8rem; }
     </style>
 </head>
 <body>
@@ -131,7 +127,7 @@
         <img src="interior 3.jpg" loading="lazy" alt="Interior 3">
         <img src="IMG_9687.jpeg" loading="lazy" alt="Service 1">
         <img src="IMG_9691.jpeg" loading="lazy" alt="Service 2">
-        <img src="IMG_9692.jpeg" alt="Service 3">
+        <img src="IMG_9692.jpeg" loading="lazy" alt="Service 3">
         <img src="IMG_9707.jpeg" loading="lazy" alt="Service 4">
         <img src="IMG_9710.jpeg" loading="lazy" alt="Service 5">
         <img src="IMG_9718.jpeg" loading="lazy" alt="Service 6">
@@ -143,31 +139,38 @@
         <p>Instant Credit Card to Cash Service in Gowlidoddy</p>
     </div>
 
-    <h2 style="text-align: center;">How It Works</h2>
-    <div class="process-flow">
-        <div class="step"><strong>01. Visit</strong><p>Bring your card & ID</p></div>
-        <div class="step"><strong>02. Process</strong><p>Secure Swipe/Verification</p></div>
-        <div class="step"><strong>03. Cash</strong><p>Instant Payment</p></div>
-    </div>
-
-    <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; border-radius: 20px; overflow: hidden; margin: 40px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-        <iframe src="https://www.youtube.com/embed/zc5jGgCh8xo" style="position: absolute; top:0; left:0; width:100%; height:100%; border:0;" allowfullscreen></iframe>
-    </div>
-
-    <h2 style="text-align: center;">Contact Concierge</h2>
+    <h2 style="text-align: center;">Connect With Us</h2>
     <div class="links">
         <a href="tel:+9182101104" class="btn call-btn">📞 CALL: 82101104 / 9705215038</a>
         <a href="https://www.instagram.com/yadagirikoushik" target="_blank" class="btn insta-btn">INSTAGRAM</a>
         <a href="https://maps.google.com" target="_blank" class="btn map-btn">GET DIRECTIONS</a>
-        <a href="https://forms.gle/2hyEh8iSL7tRxgsg6" target="_blank" class="btn" style="background: #4285f4;">INQUIRY FORM</a>
     </div>
 </div>
 
-<a href="https://wa.me/9182101104" class="whatsapp-float" target="_blank">💬</a>
+<button id="backToTop" title="Go to top">↑</button>
 
-<footer style="text-align: center; padding: 40px; color: #94a3b8; font-size: 0.8rem;">
+<a href="https://wa.me/9182101104" class="whatsapp-container" target="_blank">
+    <div class="whatsapp-float">💬</div>
+    <div class="whatsapp-text">WhatsApp</div>
+</a>
+
+<footer>
     © 2026 VENKATESHWARA FINANCE & E-SERVICES
 </footer>
+
+<script>
+    const btn = document.getElementById('backToTop');
+    window.onscroll = function() {
+        if (window.pageYOffset > 400) {
+            btn.classList.add('show');
+        } else {
+            btn.classList.remove('show');
+        }
+    };
+    btn.onclick = function() {
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    };
+</script>
 
 </body>
 </html>
