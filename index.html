@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VenkateshwaraFinance | Official Page</title>
+    <title>Venkateshwara Finance | Official Page</title>
     <style>
         :root {
             --primary: #075e54; /* WhatsApp Green */
@@ -11,22 +11,33 @@
             --google: #4285f4; /* Google Blue */
             --call: #2563eb; /* Blue for Phone */
             --dark: #1a1a1a;
+            --highlight: #fff9c4; /* Light yellow for promo */
+            --map: #34a853; /* Google Maps Green */
         }
         body { font-family: 'Arial', sans-serif; margin: 0; padding: 0; background: #f9f9f9; color: var(--dark); line-height: 1.6; }
         header { background: var(--dark); color: white; padding: 40px 20px; text-align: center; }
         
         .section { max-width: 900px; margin: 20px auto; padding: 20px; background: white; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        
+        /* Promo Box Styling */
+        .promo-box { background: var(--highlight); border: 2px dashed #fbc02d; padding: 25px; border-radius: 12px; text-align: center; margin-top: 20px; }
+        .promo-box h2 { color: #d32f2f; margin-top: 0; }
+        
         h2 { border-bottom: 2px solid #eee; padding-bottom: 10px; }
 
-        /* Gallery Grid */
-        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin: 20px 0; }
+        /* Gallery */
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin: 20px 0; }
         .gallery img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; }
 
-        /* Video Styling */
+        /* Services List */
+        .services-list { list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
+        .services-list li { background: #f1f1f1; padding: 10px; border-radius: 5px; font-weight: bold; }
+
+        /* Video */
         .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; margin: 20px 0; }
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
 
-        /* Button Group */
+        /* Buttons */
         .links { display: flex; flex-direction: column; gap: 15px; margin-top: 30px; }
         .btn { display: block; text-align: center; padding: 15px; border-radius: 8px; text-decoration: none; color: white; font-weight: bold; font-size: 1.1rem; transition: transform 0.2s; }
         .btn:hover { transform: scale(1.02); }
@@ -35,34 +46,58 @@
         .instagram { background: var(--insta); }
         .googleform { background: var(--google); }
         .call-btn { background: var(--call); }
+        .map-btn { background: var(--map); }
 
         footer { text-align: center; padding: 40px; color: #888; font-size: 0.8rem; }
+        
+        @media (max-width: 600px) {
+            .services-list { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
 
 <header>
     <h1>Venkateshwara Finance and E-Services</h1>
-    <p>Premium Services & Quality Products</p>
+    <p>Gowlidoddy, Hyderabad | Your Trusted Financial Partner</p>
 </header>
 
 <div class="section">
     <h2>Our Gallery</h2>
     <div class="gallery">
-        <img src="exterior on road 2.jpg" alt="Business Image 3">
-        <img src="exterior on road front 2.jpg" alt="Business Image 3">
-        <img src="exterior on road front.jpg" alt="Business Image 3">
-        <img src="interior 1.jpg" alt="Business Image 3">
-        <img src="interior.jpg" alt="Business Image 3">
-        <img src="interior 3.jpg" alt="Business Image 3">
-        <img src="IMG_9687.jpeg" alt="Business Image 1">
-        <img src="IMG_9691.jpeg" alt="Business Image 3">
-        <img src="IMG_9692.jpeg" alt="Business Image 3">
-        <img src="IMG_9707.jpeg" alt="Business Image 3">
-        <img src="IMG_9710.jpeg" alt="Business Image 3">
-        <img src="IMG_9718.jpeg" alt="Business Image 3">
-        <img src="https://via.placeholder.com/400x300?text=Product+3" alt="Business Image 3">
+        <img src="exterior-on-road-2.jpg" alt="Office View">
+        <img src="exterior-on-road-front-2.jpg" alt="Front View">
+        <img src="exterior-on-road-front.jpg" alt="Street View">
+        <img src="interior-1.jpg" alt="Interior">
+        <img src="interior.jpg" alt="Office Space">
+        <img src="interior-3.jpg" alt="Waiting Area">
+        <img src="IMG_9687.jpeg" alt="Service Image 1">
+        <img src="IMG_9691.jpeg" alt="Service Image 2">
+        <img src="IMG_9692.jpeg" alt="Service Image 3">
+        <img src="IMG_9707.jpeg" alt="Document Support">
+        <img src="IMG_9710.jpeg" alt="Consultation">
+        <img src="IMG_9718.jpeg" alt="E-Services">
     </div>
+
+    <div class="promo-box">
+        <h2>Credit Card to Spot Cash</h2>
+        <p style="font-size: 1.2rem; font-weight: bold;">Only 1.5% Onwards!</p>
+        <p>Looking for instant cash in Hyderabad? Visit <strong>Venkateshwara Finance and E-Services, Gowlidoddy</strong> for safe Credit Card to Cash service with Pay & Swipe facility.</p>
+        <div style="text-align: left; display: inline-block; margin: 10px 0;">
+            • Fast Processing<br>
+            • Simple Documentation<br>
+            • Transparent Charges<br>
+            • Trusted Service
+        </div>
+    </div>
+
+    <h2 style="margin-top: 30px;">Our Financial Services</h2>
+    <ul class="services-list">
+        <li>• Personal Loans</li>
+        <li>• Business Loans</li>
+        <li>• Home & Mortgage Loans</li>
+        <li>• Insurance Services</li>
+    </ul>
 
     <h2>Watch Our Promo</h2>
     <div class="video-container">
@@ -73,15 +108,20 @@
 <div class="section">
     <h2>Connect With Us</h2>
     <div class="links">
-        <a href="tel:+9182101104" class="btn call-btn">📞 Call Now: +91 82101104</a>
-        <a href="https://wa.me/9182101104" class="btn whatsapp">Chat on WhatsApp</a>
-        <a href="https://www.instagram.com/yadagirikoushik?igsh=MTMwcjJxM2llMGVjNA==" class="btn instagram">Follow on Instagram</a>
-        <a href="https://forms.gle/2hyEh8iSL7tRxgsg6" class="btn googleform">Fill Our Inquiry Form</a>
+        <a href="tel:+9182101104" class="btn call-btn">📞 Call Now: 9182101104 / 9705215038</a>
+        
+        <a href="https://www.google.com/maps/search/Venkateshwara+Finance+Gowlidoddy+Hyderabad" target="_blank" class="btn map-btn">📍 Get Directions (Gowlidoddy)</a>
+        
+        <a href="https://wa.me/9182101104" target="_blank" class="btn whatsapp">Chat on WhatsApp</a>
+        
+        <a href="https://www.instagram.com/yadagirikoushik?igsh=MTMwcjJxM2llMGVjNA==" target="_blank" class="btn instagram">Follow on Instagram</a>
+        
+        <a href="https://forms.gle/2hyEh8iSL7tRxgsg6" target="_blank" class="btn googleform">Fill Inquiry Form</a>
     </div>
 </div>
 
 <footer>
-    <p>&copy; 2026 Venkateshwara Finance and E-Services. Your trusted financial partner.</p>
+    <p>&copy; 2026 Venkateshwara Finance and E-Services. Gowlidoddy, Hyderabad.</p>
 </footer>
 
 </body>
